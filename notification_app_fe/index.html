@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Notifications</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="brand">
+        <span class="brand-icon">CN</span>
+        <div>
+          <strong>Campus Notifications</strong>
+          <small>Priority inbox</small>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <span id="statusText" class="status-text">Loading priority notifications</span>
+        <button id="refreshBtn" class="primary-btn" type="button">Refresh</button>
+      </div>
+    </nav>
+
+    <main class="app-shell">
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Stage 1</p>
+          <h1>Top 10 important unread notifications</h1>
+        </div>
+        <div class="priority-note">
+          <strong>Score</strong>
+          <span>type weight + latest time</span>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Notification summary">
+        <button class="stat-box all active" type="button" data-type="all">
+          <span class="stat-label">All</span>
+          <strong id="allCount">0</strong>
+        </button>
+        <button class="stat-box placement" type="button" data-type="Placement">
+          <span class="stat-label">Placement</span>
+          <strong id="placementCount">0</strong>
+        </button>
+        <button class="stat-box result" type="button" data-type="Result">
+          <span class="stat-label">Result</span>
+          <strong id="resultCount">0</strong>
+        </button>
+        <button class="stat-box event" type="button" data-type="Event">
+          <span class="stat-label">Event</span>
+          <strong id="eventCount">0</strong>
+        </button>
+      </section>
+
+      <section class="controls" aria-label="Notification controls">
+        <label class="search-box">
+          <span>Search notifications</span>
+          <input id="searchInput" type="search" placeholder="Search by type, message, time, or score" />
+        </label>
+
+        <div class="filter-group" aria-label="Status filters">
+          <button class="filter-btn active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="unread">Unread</button>
+          <button class="filter-btn" type="button" data-filter="important">Important</button>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <section class="notification-section">
+          <div class="section-head">
+            <div>
+              <h2>Notifications Dashboard</h2>
+              <p id="visibleCount">0 shown</p>
+            </div>
+            <span id="updatedTime" class="updated-time">--</span>
+          </div>
+
+          <div id="notificationList" class="notification-list"></div>
+        </section>
+
+        <aside class="detail-panel" aria-label="Selected notification">
+          <div id="detailContent" class="detail-content">
+            <p class="eyebrow">Selected</p>
+            <h2>No notification selected</h2>
+            <p class="muted">Choose a notification card to view the full details.</p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
